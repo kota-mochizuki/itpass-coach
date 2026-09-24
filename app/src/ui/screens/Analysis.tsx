@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useStore } from '../../app/store';
 import { CONCEPTS, META } from '../../data/content';
 import { DOMAIN_NAME, DOMAINS, type Domain } from '../../domain/types';
 import { conceptPriority } from '../../engine/priority';
 import { dashboard } from '../../engine/stats';
-import { Bar, Card, PageHead, Stat, fmtPct } from '../components';
+import { Bar, Card, Num, PageHead, Stat, fmtPct } from '../components';
 
 export default function Analysis() {
   const { ctx } = useStore();
-  const d = dashboard(ctx);
+  const d = useMemo(() => dashboard(ctx), [ctx]);
   const [domain, setDomain] = useState<Domain>('technology');
 
   const larges = [...new Set(CONCEPTS.filter((c) => c.domain === domain).map((c) => c.large_name))];
@@ -25,17 +25,17 @@ export default function Analysis() {
         <Stat label="総合理解度" value={fmtPct(d.overallMastery)} note="頻度で重み付け" />
         <Stat label="苦手テーマ" value={`${d.weakConceptCount}`} note="2問以上で理解度50%未満" />
         <Stat label="頻出テーマ習得" value={`${d.frequentMastered.mastered}/${d.frequentMastered.total}`} note="重要度S・Aで理解度70%以上" />
-        <Stat label="解いた問題" value={`${d.totalAnswered}`} />
+        <Stat label="解いた問題" value={<Num value={d.totalAnswered} memo="an-total" />} />
       </div>
 
       <Card>
         <h3>分野別</h3>
-        {DOMAINS.map((dm) => <Bar key={dm} label={DOMAIN_NAME[dm]} value={d.domainMastery[dm]} sub={`正答率 ${fmtPct(d.domainRate[dm])}`} />)}
+        {DOMAINS.map((dm) => <Bar key={dm} label={DOMAIN_NAME[dm]} value={d.domainMastery[dm]} memo={`an-dom:${dm}`} sub={`正答率 ${fmtPct(d.domainRate[dm])}`} />)}
         <p className="muted small">本試験は総合600点以上かつ各分野300点以上（1000点満点）で合格です。</p>
       </Card>
 
       <div className="tabs" role="tablist">
-        {DOMAINS.map((dm) => <button key={dm} role="tab" aria-selected={dm === domain} className={dm === domain ? 'on' : ''} onClick={() => setDomain(dm)}>{DOMAIN_NAME[dm]}</button>)}
+        {DOMAINS.map((dm) => <button key={dm} role="tab" aria-selected={dm === domain} className={`press ${dm === domain ? 'on' : ''}`} onClick={() => setDomain(dm)}>{DOMAIN_NAME[dm]}</button>)}
       </div>
 
       <Card>
@@ -44,7 +44,7 @@ export default function Analysis() {
           const cs = CONCEPTS.filter((c) => c.large_name === name);
           const w = cs.reduce((s, c) => s + c.frequency_score, 0) || 1;
           const m = cs.reduce((s, c) => s + c.frequency_score * (ctx.concepts.get(c.concept_id)?.mastery ?? 0), 0) / w;
-          return <Bar key={name} label={name} value={m} />;
+          return <Bar key={name} label={name} value={m} memo={`an-large:${name}`} />;
         })}
       </Card>
 

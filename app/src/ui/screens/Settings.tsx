@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { exportBackup, importBackup, resetAll } from '../../app/actions';
 import { useStore } from '../../app/store';
 import { ALL_QUESTIONS, CONCEPTS, META, STUDY_QUESTIONS } from '../../data/content';
@@ -28,7 +29,7 @@ export default function Settings() {
 
   return (
     <div className="page">
-      <PageHead title="設定" />
+      <PageHead title="設定" right={<Link to="/" className="btn text press back">ホームへ</Link>} />
       {msg && <p className="note">{msg}</p>}
       <Card>
         <label className="field">試験日
@@ -38,6 +39,17 @@ export default function Settings() {
           <select value={settings.dailyMinutes} onChange={(e) => saveSettings({ dailyMinutes: Number(e.target.value) })}>
             {[10, 20, 30, 45].map((m) => <option key={m} value={m}>{m}分</option>)}
           </select>
+        </label>
+      </Card>
+
+      <Card>
+        <label className="switch">
+          <span>効果音<small className="muted">正解や達成のときに小さな音</small></span>
+          <input type="checkbox" role="switch" checked={settings.soundOn} onChange={(e) => saveSettings({ soundOn: e.target.checked })} />
+        </label>
+        <label className="switch">
+          <span>振動<small className="muted">対応するスマートフォンのみ。不正解では振動しません</small></span>
+          <input type="checkbox" role="switch" checked={settings.hapticsOn} onChange={(e) => saveSettings({ hapticsOn: e.target.checked })} />
         </label>
       </Card>
 

@@ -17,12 +17,19 @@ async function answerCurrent(correct: boolean, sure = true) {
   const s = (await db.sessions.orderBy('startedAt').last())!;
   const q = questionById.get(s.plan[s.index].questionId)!;
   const pick = correct ? q.official_answer : LABELS.find((l) => l !== q.official_answer)!;
-  const btn = await screen.findByRole('button', { name: new RegExp(`^${pick}`) });
+  const btn = await screen.findByRole('radio', { name: new RegExp(`^${pick}`) });
   fireEvent.click(btn);
   fireEvent.click(await screen.findByRole('button', { name: sure ? '自信あり' : '迷って回答' }));
-  await screen.findByText(correct ? '正解' : `正解は ${q.official_answer} でした`);
+  if (correct) await screen.findAllByText('正解');
+  else await screen.findByText('ここは混同しやすいポイントです');
   return q;
 }
+
+const findCounter = (t: string | RegExp) => screen.findByText((_, el) => {
+  if (!el?.classList.contains('counter')) return false;
+  const txt = el.textContent ?? '';
+  return typeof t === 'string' ? txt === t : t.test(txt);
+});
 
 describe('E2E: 初回起動 → 診断 → 今日の学習 → 間違いノート', () => {
   it('一連の学習ループが動く', async () => {
@@ -32,7 +39,7 @@ describe('E2E: 初回起動 → 診断 → 今日の学習 → 間違いノー�
 
     // 診断15問（交互に正解・不正解）
     for (let i = 0; i < 15; i++) {
-      await screen.findByText(`${i + 1} / 15`);
+      await findCounter(`${i + 1} / 15`);
       const q = await answerCurrent(i % 2 === 0);
       // 出典表示
       expect(screen.getByText(new RegExp(`問${q.question_number}`))).toBeTruthy();
@@ -52,11 +59,11 @@ describe('E2E: 初回起動 → 診断 → 今日の学習 → 間違いノー�
     fireEvent.click(screen.getByRole('button', { name: /今日の学習をはじめる|もう少し学習する/ }));
 
     // 今日の学習: 1問目をまちがえる → 「別の問題で確認」が差し込まれる
-    await screen.findByText(/^1 \/ \d+$/);
+    await findCounter(/^1 \/ \d+$/);
     await answerCurrent(false, false);
     const s = (await db.sessions.orderBy('startedAt').last())!;
     const hasFollowup = s.plan.some((p) => p.reason === 'followup');
-    if (hasFollowup) expect(screen.getByText('あとで同じテーマを別の問題で確認します。')).toBeTruthy();
+    if (hasFollowup) expect(await screen.findByText('このテーマは、あとで別の問題でもう一度出題します。')).toBeTruthy();
     // 詳しく理解する → テーマの要点
     fireEvent.click(screen.getByRole('button', { name: '詳しく理解する' }));
     expect(screen.getAllByText(/テーマ：/).length).toBeGreaterThan(0);

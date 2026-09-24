@@ -153,6 +153,12 @@ export interface Settings {
   examDate: string; // YYYY-MM-DD
   dailyMinutes: number;
   diagnosticDone: boolean;
+  /** 効果音（既定OFF） */
+  soundOn: boolean;
+  /** 振動フィードバック（対応端末のみ） */
+  hapticsOn: boolean;
 }
 
-export const DEFAULT_SETTINGS: Settings = { examDate: '2026-11-08', dailyMinutes: 20, diagnosticDone: false };
+export const DEFAULT_SETTINGS: Settings = {
+  examDate: '2026-11-08', dailyMinutes: 20, diagnosticDone: false, soundOn: false, hapticsOn: true,
+};

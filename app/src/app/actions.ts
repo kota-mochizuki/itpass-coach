@@ -1,6 +1,7 @@
 import { conceptById, primaryConcept, questionById } from '../data/content';
 import { db } from '../data/db';
 import type { Attempt, AttemptKind, Confidence, Label, Mode, PlanItem, Session } from '../domain/types';
+import { overcomeConcepts } from '../engine/celebration';
 import { buildCtx } from '../engine/priority';
 import { buildPlan, followupFor, type FreeFilter } from '../engine/session';
 import { emptyQState, nextQState } from '../engine/srs';
@@ -42,7 +43,8 @@ export async function unfinishedSession(): Promise<Session | null> {
   return s;
 }
 
-export interface AnswerResult { attempt: Attempt; followup: PlanItem | null }
+/** overcome: この回答で苦手を克服したテーマ（演出用。学習ロジックには影響しない） */
+export interface AnswerResult { attempt: Attempt; followup: PlanItem | null; overcome: string[] }
 
 export async function answer(
   session: Session, item: PlanItem, selected: Label, confidence: Confidence, responseMs: number, now = Date.now(),
@@ -80,12 +82,23 @@ export async function answer(
     if (session.index >= plan.length) session.endedAt = now;
     await db.sessions.put(session);
   });
-  return { attempt, followup };
+  return { attempt, followup, overcome: overcomeConcepts(ctx.attempts, attempt, now) };
 }
 
 export async function finishSession(session: Session) {
   session.endedAt = Date.now();
   await db.sessions.put(session);
+}
+
+/** 一度だけ見せる実績・演出の記録 */
+export async function seenAchievements(): Promise<Set<string>> {
+  const row = await db.kv.get('achievements');
+  return new Set((row?.value as string[]) ?? []);
+}
+export async function markAchievement(id: string) {
+  const s = await seenAchievements();
+  s.add(id);
+  await db.kv.put({ key: 'achievements', value: [...s] });
 }
 
 export async function logError(type: string, detail: unknown) {

@@ -1,7 +1,7 @@
 import { useStore } from '../../app/store';
 import { conceptShort, primaryConcept, questionById } from '../../data/content';
 import { dayKey } from '../../engine/time';
-import { Card, PageHead, fmtPct } from '../components';
+import { Num, PageHead, fmtPct } from '../components';
 import { useStart } from './Home';
 
 /** 間違いノート（自動生成） */
@@ -20,17 +20,18 @@ export default function Review() {
 
   return (
     <div className="page">
-      <PageHead title="復習" sub="まちがえた問題は自動でここに集まります。" />
-      <Card className="hero">
-        <p>今日復習すべき間違い <b className="num">{due.length}</b> 問</p>
-        <button className="btn primary big" disabled={busy || wrong.length === 0} onClick={() => start('mistakes')}>
+      <PageHead title="復習" sub="まちがえた問題は自動でここに集まります。整理はアプリに任せてください。" />
+      <section className="hero">
+        <p className="eyebrow">今日復習すべき間違い</p>
+        <div className="today-count"><Num value={due.length} /><span className="of">問</span></div>
+        <button className="btn primary big press" disabled={busy || wrong.length === 0} onClick={() => start('mistakes')}>
           {due.length ? '今日の間違いを復習する' : '間違えた問題を解き直す'}
         </button>
         {msg && <p className="note">{msg}</p>}
-      </Card>
+      </section>
 
-      {sorted.length === 0 ? <p className="muted">まだ間違えた問題はありません。</p> : (
-        <Card>
+      {sorted.length === 0 ? <p className="muted empty">まだ復習が必要な問題はありません。</p> : (
+        <section className="block">
           <h3>テーマ別の間違い</h3>
           <ul className="mistakes">
             {sorted.map(([cid, list]) => {
@@ -51,7 +52,7 @@ export default function Review() {
               );
             })}
           </ul>
-        </Card>
+        </section>
       )}
     </div>
   );
