@@ -18,3 +18,8 @@ python3 scripts/parse_exam.py all      # 問題分割・公式正答・原本画
 python3 scripts/build_dataset.py       # 分類・シラバス照合・Frequency Score → app/src/data/generated
 ```
 校正・解説の追加は `data/curation/{年度}.json`（形式: `docs/02_data_format.md`）。
+
+## 公開（GitHub Pages）
+https://kota-mochizuki.github.io/itpass-coach/
+
+更新するとき: `cd app && npm run deploy`（テスト→ビルド→gh-pagesへ反映）
