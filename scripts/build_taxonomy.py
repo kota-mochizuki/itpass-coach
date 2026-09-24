@@ -61,7 +61,11 @@ def main():
     cur_l = cur_m = None
     for l in toc:
         s = norm(l)
-        if m := re.match(r'^大分類 (\d+):(.+)$', s): cur_l = int(m.group(1)); large[cur_l] = m.group(2)
+        if m := re.match(r'^大分類 (\d+):(.+)$', s):
+            cur_l = int(m.group(1)); large[cur_l] = m.group(2).split('中分類')[0].strip()
+            # 「大分類 1:企業と法務 中分類 1:企業活動」のように同じ行に続く場合
+            if mm := re.search(r'中分類 (\d+):([^.]+)', s):
+                cur_m = int(mm.group(1)); middle[cur_m] = {'name': mm.group(2).strip(), 'large': cur_l}
         elif m := re.match(r'^中分類 (\d+):([^.]+)', s): cur_m = int(m.group(1)); middle[cur_m] = {'name': m.group(2).strip(), 'large': cur_l}
         elif m := re.match(r'^(\d+)\. ([^.]+)', s):
             small_parent[int(m.group(1))] = (m.group(2).strip(), cur_m)

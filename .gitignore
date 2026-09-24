@@ -8,3 +8,4 @@ data/ocr_pdf
 data/ocr.log
 .DS_Store
 data/syllabus/
+.shots/

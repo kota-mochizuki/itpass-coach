@@ -191,12 +191,13 @@ a { color: var(--primary); }
 .tabbar a.on svg { stroke-width: 2.2; }
 
 /* ---------- 画面遷移 ---------- */
-.route-enter { animation: route-in var(--d-slow) var(--ease) both; }
+/* fill-mode は backwards: 終了後に transform を残すと position:fixed の基準が変わり、下部ボタン欄がずれる */
+.route-enter { animation: route-in var(--d-slow) var(--ease) backwards; }
 @keyframes route-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-.q-enter { display: flex; flex-direction: column; gap: var(--s4); animation: q-in 260ms var(--ease) both; }
+.q-enter { display: flex; flex-direction: column; gap: var(--s4); animation: q-in 260ms var(--ease) backwards; }
 @keyframes q-in { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
-.fade-in { animation: fade var(--d) var(--ease) both; }
-.fade-up { animation: fade-up var(--d-slow) var(--ease) both; }
+.fade-in { animation: fade var(--d) var(--ease) backwards; }
+.fade-up { animation: fade-up var(--d-slow) var(--ease) backwards; }
 .fade-up.d1 { animation-delay: 120ms; } .fade-up.d2 { animation-delay: 220ms; } .fade-up.d3 { animation-delay: 320ms; }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
@@ -242,14 +243,14 @@ a { color: var(--primary); }
 .choice.is-mine { border-color: color-mix(in srgb, var(--warn) 55%, var(--line)); background: var(--warn-soft); }
 .choice.is-dim { opacity: .55; }
 .choice:disabled { cursor: default; }
-.choice-tag { flex: none; align-self: center; font-size: var(--fs-xs); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; animation: fade var(--d) var(--ease) both; }
+.choice-tag { flex: none; align-self: center; font-size: var(--fs-xs); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; animation: fade var(--d) var(--ease) backwards; }
 .labels-only .choice-tag { position: absolute; right: var(--s2); top: var(--s2); }
 .choice-tag.ok { color: var(--success); }
 .choice-tag.mine { color: var(--warn); }
 .check { width: 18px; height: 18px; flex: none; }
 .check circle { fill: var(--success); }
 .check path { fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-.check.pop, .choice-tag .check { animation: pop 320ms var(--ease) both; }
+.check.pop, .choice-tag .check { animation: pop 320ms var(--ease) backwards; }
 @keyframes pop { 0% { opacity: 0; transform: scale(.4); } 70% { opacity: 1; transform: scale(1.08); } 100% { transform: scale(1); } }
 
 .feedback { display: flex; flex-direction: column; gap: var(--s3); }
@@ -334,7 +335,7 @@ ul.plain { padding-left: 1.1em; margin: 0; }
 .toast {
   display: flex; gap: var(--s3); align-items: center; background: var(--surface); color: var(--ink); border: 1px solid var(--line);
   border-radius: var(--r-lg); padding: var(--s3) var(--s4); box-shadow: var(--shadow-lift); max-width: 480px; width: 100%;
-  animation: toast-in var(--d-slow) var(--ease) both;
+  animation: toast-in var(--d-slow) var(--ease) backwards;
 }
 .toast b { display: block; font-size: var(--fs); }
 .toast p { margin: 2px 0 0; font-size: var(--fs-sm); color: var(--ink-2); }
