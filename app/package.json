@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview --host",
     "test": "vitest run",
-    "data": "cd .. && python3 scripts/build_dataset.py"
+    "data": "cd .. && python3 scripts/build_dataset.py",
+    "deploy": "../scripts/deploy_pages.sh"
   },
   "dependencies": {
     "dexie": "^4.4.6",
