@@ -1,0 +1,418 @@
+{
+ "built_at": "2026-09-24T21:12:53",
+ "syllabus": {
+  "title": "ITパスポート試験 シラバス Ver.6.5",
+  "organization": "IPA",
+  "published": "2026-01",
+  "url": "https://www.ipa.go.jp/shiken/syllabus/omgdg50000005kn1-att/syllabus_ip_ver6_5.pdf"
+ },
+ "exams": [
+  {
+   "exam_id": "2016h28a",
+   "year": 2016,
+   "label": "平成28年度 秋期",
+   "exam_name": "平成28年度 秋期 ITパスポート試験",
+   "time": 2016.8,
+   "report": {
+    "exam": {
+     "exam_id": "2016h28a",
+     "year": 2016,
+     "label": "平成28年度 秋期",
+     "exam_name": "平成28年度 秋期 ITパスポート試験",
+     "time": 2016.8
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 26
+   }
+  },
+  {
+   "exam_id": "2016h28h",
+   "year": 2016,
+   "label": "平成28年度 春期",
+   "exam_name": "平成28年度 春期 ITパスポート試験",
+   "time": 2016.3,
+   "report": {
+    "exam": {
+     "exam_id": "2016h28h",
+     "year": 2016,
+     "label": "平成28年度 春期",
+     "exam_name": "平成28年度 春期 ITパスポート試験",
+     "time": 2016.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 17
+   }
+  },
+  {
+   "exam_id": "2017h29a",
+   "year": 2017,
+   "label": "平成29年度 秋期",
+   "exam_name": "平成29年度 秋期 ITパスポート試験",
+   "time": 2017.8,
+   "report": {
+    "exam": {
+     "exam_id": "2017h29a",
+     "year": 2017,
+     "label": "平成29年度 秋期",
+     "exam_name": "平成29年度 秋期 ITパスポート試験",
+     "time": 2017.8
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 32
+   }
+  },
+  {
+   "exam_id": "2017h29h",
+   "year": 2017,
+   "label": "平成29年度 春期",
+   "exam_name": "平成29年度 春期 ITパスポート試験",
+   "time": 2017.3,
+   "report": {
+    "exam": {
+     "exam_id": "2017h29h",
+     "year": 2017,
+     "label": "平成29年度 春期",
+     "exam_name": "平成29年度 春期 ITパスポート試験",
+     "time": 2017.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 23
+   }
+  },
+  {
+   "exam_id": "2018h30a",
+   "year": 2018,
+   "label": "平成30年度 秋期",
+   "exam_name": "平成30年度 秋期 ITパスポート試験",
+   "time": 2018.8,
+   "report": {
+    "exam": {
+     "exam_id": "2018h30a",
+     "year": 2018,
+     "label": "平成30年度 秋期",
+     "exam_name": "平成30年度 秋期 ITパスポート試験",
+     "time": 2018.8
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 25
+   }
+  },
+  {
+   "exam_id": "2018h30h",
+   "year": 2018,
+   "label": "平成30年度 春期",
+   "exam_name": "平成30年度 春期 ITパスポート試験",
+   "time": 2018.3,
+   "report": {
+    "exam": {
+     "exam_id": "2018h30h",
+     "year": 2018,
+     "label": "平成30年度 春期",
+     "exam_name": "平成30年度 春期 ITパスポート試験",
+     "time": 2018.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 35
+   }
+  },
+  {
+   "exam_id": "2019h31h",
+   "year": 2019,
+   "label": "平成31年度 春期",
+   "exam_name": "平成31年度 春期 ITパスポート試験",
+   "time": 2019.3,
+   "report": {
+    "exam": {
+     "exam_id": "2019h31h",
+     "year": 2019,
+     "label": "平成31年度 春期",
+     "exam_name": "平成31年度 春期 ITパスポート試験",
+     "time": 2019.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 36
+   }
+  },
+  {
+   "exam_id": "2019r01a",
+   "year": 2019,
+   "label": "令和元年度 秋期",
+   "exam_name": "令和元年度 秋期 ITパスポート試験",
+   "time": 2019.8,
+   "report": {
+    "exam": {
+     "exam_id": "2019r01a",
+     "year": 2019,
+     "label": "令和元年度 秋期",
+     "exam_name": "令和元年度 秋期 ITパスポート試験",
+     "time": 2019.8
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 24
+   }
+  },
+  {
+   "exam_id": "2020r02o",
+   "year": 2020,
+   "label": "令和2年度 10月",
+   "exam_name": "令和2年度 10月 ITパスポート試験",
+   "time": 2020.8,
+   "report": {
+    "exam": {
+     "exam_id": "2020r02o",
+     "year": 2020,
+     "label": "令和2年度 10月",
+     "exam_name": "令和2年度 10月 ITパスポート試験",
+     "time": 2020.8
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 29
+   }
+  },
+  {
+   "exam_id": "2021r03",
+   "year": 2021,
+   "label": "令和3年度",
+   "exam_name": "令和3年度 ITパスポート試験 公開問題",
+   "time": 2021.3,
+   "report": {
+    "exam": {
+     "exam_id": "2021r03",
+     "year": 2021,
+     "label": "令和3年度",
+     "exam_name": "令和3年度 ITパスポート試験 公開問題",
+     "time": 2021.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 22
+   }
+  },
+  {
+   "exam_id": "2022r04",
+   "year": 2022,
+   "label": "令和4年度",
+   "exam_name": "令和4年度 ITパスポート試験 公開問題",
+   "time": 2022.3,
+   "report": {
+    "exam": {
+     "exam_id": "2022r04",
+     "year": 2022,
+     "label": "令和4年度",
+     "exam_name": "令和4年度 ITパスポート試験 公開問題",
+     "time": 2022.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 33
+   }
+  },
+  {
+   "exam_id": "2023r05",
+   "year": 2023,
+   "label": "令和5年度",
+   "exam_name": "令和5年度 ITパスポート試験 公開問題",
+   "time": 2023.3,
+   "report": {
+    "exam": {
+     "exam_id": "2023r05",
+     "year": 2023,
+     "label": "令和5年度",
+     "exam_name": "令和5年度 ITパスポート試験 公開問題",
+     "time": 2023.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 34
+   }
+  },
+  {
+   "exam_id": "2024r06",
+   "year": 2024,
+   "label": "令和6年度",
+   "exam_name": "令和6年度 ITパスポート試験 公開問題",
+   "time": 2024.3,
+   "report": {
+    "exam": {
+     "exam_id": "2024r06",
+     "year": 2024,
+     "label": "令和6年度",
+     "exam_name": "令和6年度 ITパスポート試験 公開問題",
+     "time": 2024.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 29
+   }
+  },
+  {
+   "exam_id": "2025r07",
+   "year": 2025,
+   "label": "令和7年度",
+   "exam_name": "令和7年度 ITパスポート試験 公開問題",
+   "time": 2025.3,
+   "report": {
+    "exam": {
+     "exam_id": "2025r07",
+     "year": 2025,
+     "label": "令和7年度",
+     "exam_name": "令和7年度 ITパスポート試験 公開問題",
+     "time": 2025.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 28
+   }
+  },
+  {
+   "exam_id": "2026r08",
+   "year": 2026,
+   "label": "令和8年度",
+   "exam_name": "令和8年度 ITパスポート試験 公開問題",
+   "time": 2026.3,
+   "report": {
+    "exam": {
+     "exam_id": "2026r08",
+     "year": 2026,
+     "label": "令和8年度",
+     "exam_name": "令和8年度 ITパスポート試験 公開問題",
+     "time": 2026.3
+    },
+    "questions_found": 100,
+    "answers_found": 100,
+    "missing_numbers": [],
+    "flagged": 26
+   }
+  }
+ ],
+ "now": 2026.85,
+ "half_life_years": 3.0,
+ "large": {
+  "1": "企業と法務中分類 1:企業活動",
+  "2": "経営戦略",
+  "3": "システム戦略",
+  "4": "開発技術",
+  "5": "プロジェクトマネジメント",
+  "6": "サービスマネジメント",
+  "7": "基礎理論",
+  "8": "コンピュータシステム",
+  "9": "技術要素"
+ },
+ "middle": {
+  "1": {
+   "name": "企業活動",
+   "large": 1
+  },
+  "2": {
+   "name": "法務",
+   "large": 1
+  },
+  "3": {
+   "name": "経営戦略マネジメント",
+   "large": 2
+  },
+  "4": {
+   "name": "技術戦略マネジメント",
+   "large": 2
+  },
+  "5": {
+   "name": "ビジネスインダストリ",
+   "large": 2
+  },
+  "6": {
+   "name": "システム戦略",
+   "large": 3
+  },
+  "7": {
+   "name": "システム企画",
+   "large": 3
+  },
+  "8": {
+   "name": "システム開発技術",
+   "large": 4
+  },
+  "9": {
+   "name": "ソフトウェア開発管理技術",
+   "large": 4
+  },
+  "10": {
+   "name": "プロジェクトマネジメント",
+   "large": 5
+  },
+  "11": {
+   "name": "サービスマネジメント",
+   "large": 6
+  },
+  "12": {
+   "name": "システム監査",
+   "large": 6
+  },
+  "13": {
+   "name": "基礎理論",
+   "large": 7
+  },
+  "14": {
+   "name": "アルゴリズムとプログラミング",
+   "large": 7
+  },
+  "15": {
+   "name": "コンピュータ構成要素",
+   "large": 8
+  },
+  "16": {
+   "name": "システム構成要素",
+   "large": 8
+  },
+  "17": {
+   "name": "ソフトウェア",
+   "large": 8
+  },
+  "18": {
+   "name": "ハードウェア",
+   "large": 8
+  },
+  "19": {
+   "name": "情報デザイン",
+   "large": 9
+  },
+  "20": {
+   "name": "情報メディア",
+   "large": 9
+  },
+  "21": {
+   "name": "データベース",
+   "large": 9
+  },
+  "22": {
+   "name": "ネットワーク",
+   "large": 9
+  },
+  "23": {
+   "name": "セキュリティ",
+   "large": 9
+  }
+ }
+}

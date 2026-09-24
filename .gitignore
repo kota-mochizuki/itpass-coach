@@ -1,0 +1,10 @@
+node_modules/
+app/dist/
+app/tsconfig.tsbuildinfo
+# 元PDF・OCR中間データは大きいので含めない（scripts で再生成可能）
+data/raw/
+data/pages/
+data/ocr_pdf
+data/ocr.log
+.DS_Store
+data/syllabus/
